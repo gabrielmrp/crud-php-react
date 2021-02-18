@@ -74,7 +74,7 @@
         <?php 
         } ?>
         <?php 
-        if($args['entity']!=='devedor')
+        if($args['entity']!=='devedor' && $args['entity']!=='dividas')
         {
         ?>
         <div class="row"> 
