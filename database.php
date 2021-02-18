@@ -1,5 +1,7 @@
 <?php
 
+namespace Illuminate\Database\Capsule;
+
 use Illuminate\Database\Capsule\Manager;
 
 $capsule = new Manager;
