@@ -15,5 +15,6 @@ include(dirname(__DIR__, 1).'/views/header.php');
 </div>
  
 <?php
+ 
 include(dirname(__DIR__, 1).'/views/footer.php');
 ?>

@@ -4,12 +4,13 @@ use Illuminate\Database\Capsule\Manager;
 
 $capsule = new Manager;
 
-$env = 'development';
+  
+$is_development = @file_get_contents(dirname(__DIR__, 2).'/development');
 
-$database = $env !== 'development'?'id16186378_phpcrud':'phpcrud';
-$username = $env !== 'development'?'id16186378_root':'root';
-$password = $env !== 'development'?'\7~yktJb!a>m)oWF':'root';
-$host = $env !== 'development'?'localhost':'db';
+$database = !$is_development?'sql10393817':'phpcrud';
+$username = !$is_development?'sql10393817':'root';
+$password = !$is_development?'FeWCITfUUr':'root';
+$host =     !$is_development?'sql10.freemysqlhosting.net':'db';
 
 $capsule->addConnection([
     'driver'    => 'mysql',
