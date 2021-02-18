@@ -164,8 +164,9 @@ class DevedorController extends HomeController
     public function delete($id){
 
         $path = dirname(__DIR__, 2).'/views/devedor.php';
-        $success = Devedor::destroy($id);
-        if ($success) {
+        var_dump($id);
+        $success = Devedor::destroy((int)$id[1]);
+         if ($success) {
             $mensagem = "Usuário deletado";
             $resultado = "success";
         }
@@ -175,7 +176,7 @@ class DevedorController extends HomeController
         }
         echo $this->render_php(dirname(__DIR__, 2).'/views/message.php',
             ['mensagem'=>$mensagem,
-            'resultado'=>$resultado]);
+            'resultado'=>$resultado]); 
  
     }
 

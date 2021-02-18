@@ -17,6 +17,29 @@ $('.calladd').click(function() {
 });
 
 
+$('#add').click(function() {
+
+	form = $("#addform");
+	entity = $(this).attr('entity');
+	console.log(form); 
+
+	var entity_singular = entity.replace("es","").replace("s","")
+	/*url: entity+'/'+delItem,*/
+ 	$.ajax({
+		url: "/"+entity,
+		type: 'POST', 
+		data: form.serialize(),
+		complete: function (arg) {
+			 if(entity_singular=='devedor')
+			{
+				location.href = '/devedores';
+			}
+			else{
+				location.href = location.pathname;
+			} 
+		}
+	});
+});
 //Update
 
 $('.editItem').click(function() {
@@ -83,7 +106,7 @@ $('.editItem').click(function() {
 						$( "<small class='error-msg'>Cpf/Cnpj já existe<br /></small>" ).insertAfter( $('#editform').find($('input[name ="cpf_ou_cnpj"]')));
  						}
 					else{
-						  location.reload();
+						   location.reload();
 					}
 				}
 			}); 
@@ -110,11 +133,19 @@ $('#del').click(function() {
 	$.ajax({
 		url: "/"+entity_singular+'/'+delItem,
 		type: 'DELETE', 
-		success: function (arg) {
-			location.reload()
+		complete: function (arg) {
+			if(entity_singular=='devedor')
+			{
+				location.href = '/devedores';
+			}
+			else{
+				location.reload();
+			} 
 		}
 	});
 });
+
+
 
 
 

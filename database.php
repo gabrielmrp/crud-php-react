@@ -5,7 +5,7 @@ use Illuminate\Database\Capsule\Manager;
 $capsule = new Manager;
 
   
-$is_development = @file_get_contents(dirname(__DIR__, 2).'/development');
+$is_development = @file_get_contents('development')!==false;
 
 $database = !$is_development?'sql10393817':'phpcrud';
 $username = !$is_development?'sql10393817':'root';

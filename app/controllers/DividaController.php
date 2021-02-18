@@ -71,23 +71,30 @@ class DividaController extends HomeController
         $resultado = "success";
             
           
-         /*echo $this->render_php(dirname(__DIR__, 2).'/views/message.php',
+         echo $this->render_php(dirname(__DIR__, 2).'/views/message.php',
             ['mensagem'=>$mensagem,
-            'resultado'=>$resultado]);*/ 
-        echo "<script>window.reload();</script>";
+            'resultado'=>$resultado]);  
+        
+
+        echo "<script>
+        console.log(".$_POST['devedor_id'].");
+        location.href = '/devedor/"+$_POST['devedor_id']+"';</script>";
   
     }
 
         public function update($id)
     {
           
-         unset($_POST['submit']);
-         $array_to_update = array_merge($_POST,["id"=>$id[1]]);
+         unset($_POST['submit']);         
          
-           
+         $data = $_POST;
+         $data['updated']=  date('Y-m-d h:i:s', time());
+
+         $array_to_update = array_merge($data,["id"=>$id[1]]);
+
          $success = Divida::where('id',$id[1])->update($array_to_update);
 
-         $mensagem = $_POST["nome"]." adicionado";
+         $mensagem = $data["nome"]." adicionado";
          $resultado = "success";
 
          echo $this->render_php(dirname(__DIR__, 2).'/views/message.php',

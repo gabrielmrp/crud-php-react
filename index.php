@@ -25,12 +25,13 @@ $router->get('/dashboard', 'App\Controllers\DevedorController::dashboard');
 #Devedor
 $router->get('/devedores', 'App\Controllers\DevedorController::listDevedores');
 $router->get('/devedor/{id}', 'App\Controllers\DevedorController::get','{id}');
+$router->delete('/devedor/{id}', 'App\Controllers\DevedorController::delete','{id}');
 $router->post('/devedores', 'App\Controllers\DevedorController::insert','{devedor}');
 $router->update('/devedor/{id}', 'App\Controllers\DevedorController::update','{devedor}');
-$router->delete('/devedor/{id}', 'App\Controllers\DevedorController::delete','{id}');
+
 
 #Dívidas
-$router->get('/dividas', 'App\Controllers\DividaController::listDividas');
+
 $router->delete('/divida/{id}', 'App\Controllers\DividaController::delete','{id}');
 $router->post('/dividas', 'App\Controllers\DividaController::insert','{divida}');
 $router->update('/divida/{id}', 'App\Controllers\DividaController::update','{divida}');

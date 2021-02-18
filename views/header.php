@@ -22,11 +22,11 @@
  <link rel="stylesheet" href="<?= '../static/css/solid.min.css'; ?>">
 
  <!-- Bloco de Estilos -->
- 
+
 </head>
 
 <body> 
-    
+
     <!-- Navbar -->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
@@ -54,11 +54,7 @@
         Devedores
     </a>
 </li>
-<li class="nav-item"> 
-    <a class="nav-link" href="/dividas">
-        Dívidas
-    </a>
-</li>
+ 
 
 
 </ul>           

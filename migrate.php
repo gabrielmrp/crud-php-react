@@ -3,7 +3,7 @@
 use Illuminate\Database\Capsule\Manager;
  
 $capsule = new Manager;
-
+ 
 #esquema
 
 Manager::schema()->dropIfExists('dividas');				

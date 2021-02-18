@@ -61,9 +61,14 @@
                                         {?>
                                             <a class="btn btn-success btn-xs mx-2 viewItem" href="../devedor/<?=$item['id'] ?>">&#128065;</a>
                                         <?php 
-                                        } ?>
+                                        } 
+                                        else{
+                                        ?>
                                          <a class="btn btn-warning btn-xs mx-2 editItem" itemid="<?=$item['id']?>" entity="<?=$args['entity']?>">&#128393;</a>
                                          <a class="btn btn-danger btn-xs mx-2 delItem"  href="#" data-toggle="modal" data-target="#delete-modal" itemid="<?=$item['id']?>" entity="<?=$args['entity']?>">&#128465;</a>
+                                            <?php
+                                        }
+                                         ?>
                                     </div>
                                 </div>
                             </div> 
@@ -74,7 +79,7 @@
         <?php 
         } ?>
         <?php 
-        if($args['entity']!=='devedor' && $args['entity']!=='dividas')
+        if($args['entity']!=='devedor')
         {
         ?>
         <div class="row"> 
@@ -94,7 +99,7 @@
                             Adicionar <?=$args['entity']?>
                         </h5> 
                         <div class="card-body">
-                            <form action="/<?=$args['entity']?>" method="post" enctype="multipart/form-data" id="form">
+                            <form action="/<?=$args['entity']?>" method="post" enctype="multipart/form-data" id="addform">
                                 <fieldset> 
                                     <?php foreach($args['input_types'] as $key => $value)
                                     {
@@ -127,7 +132,7 @@
                                     }
                                     ?>
                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary js-tooltip" id=  />Adicionar
+                                        <button type="button" class="btn btn-primary js-tooltip" id="add" entity="<?=$args['entity']?>"  />Adicionar
                                         </button>
                                     </div>
                                 </fieldset>
